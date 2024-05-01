@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Integrated Browser Tool</title>
+<link rel="stylesheet" href="Browser Style.css">
+<style>
+    /* Additional CSS for color picker */
+    .color-button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+</style>
+</head>
+<body>
+    <div class="tabs">
+        <button class="tablink" onclick="openTab(event, 'UrlLauncher')">URL Launcher</button>
+        <button class="tablink" onclick="openTab(event, 'VolumeControl')">Volume Control</button>
+        <button class="tablink" onclick="openTab(event, 'ColorPicker')">Color Picker</button>
+        <button class="tablink" onclick="openTab(event, 'Calculator')">Calculator</button>
+        <button class="tablink" onclick="openTab(event, 'HoverButtons')">Hover Buttons</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="UrlLauncher" class="tabcontent">
+        <input type="text" id="urlInput" placeholder="Enter URL">
+        <button onclick="openUrl()">Open URL</button>
+    </div>
+
+    <div id="VolumeControl" class="tabcontent">
+        <input type="text" id="volumeInput" value="5" readonly>
+        <button onclick="increaseVolume()">+</button>
+        <button onclick="decreaseVolume()">-</button>
+    </div>
+
+    <div id="ColorPicker" class="tabcontent">
+        <button class="color-button" onclick="changeColor('white')">White</button>
+        <button class="color-button" onclick="changeColor('red')">Red</button>
+        <button class="color-button" onclick="changeColor('green')">Green</button>
+        <button class="color-button" onclick="changeColor('blue')">Blue</button>
+        <button class="color-button" onclick="changeColor('beige')">Beige</button>
+        <br><br>
+        <input type="text" id="colorInput" placeholder="Type a color...">
+        <button class="color-button" onclick="changeColor()">Set Color</button>
+    </div>
+
+    <div id="Calculator" class="tabcontent">
+        <table class="calculator-table">
+            <tr>
+                <td><label for="num1">Number 1:</label></td>
+                <td><input type="number" id="num1" placeholder="Enter first number"></td>
+            </tr>
+            <tr>
+                <td><label for="num2">Number 2:</label></td>
+                <td><input type="number" id="num2" placeholder="Enter second number"></td>
+            </tr>
+            <tr>
+                <td><label for="operation">Operation:</label></td>
+                <td>
+                    <select id="operation">
+                        <option value="+">Add (+)</option>
+                        <option value="-">Subtract (-)</option>
+                        <option value="*">Multiply (×)</option>
+                        <option value="/">Divide (÷)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="performCalculation()">Calculate</button></td>
+            </tr>
+            <tr>
+                <td><label for="result">Result:</label></td>
+                <td><input type="text" id="result" readonly></td>
+            </tr>
+        </table>
+    </div>
+    
+    
+
+    <div id="HoverButtons" class="tabcontent">
+        
+        <div class="hover-buttons">
+            <img src="Leon and Chris.jpeg" alt="Button 1" class="hover-button" data-hover="Leon and Ada.jpg" data-normal="Leon and Chris.jpeg">
+            <img src="Leon and Nemesis.jpeg" alt="Button 2" class="hover-button" data-hover="Jill and Nemesis.jpeg" data-normal="Leon and Nemesis.jpeg">
+            <img src="Ada and Mr.X.jpeg" alt="Button 3" class="hover-button" data-hover="Claire and Lychen.jpg" data-normal="Ada and Mr.X.jpeg">
+        </div>
+    </div>
+
+    <script src="TabSwitching.js"></script>
+</body>
+</html>
